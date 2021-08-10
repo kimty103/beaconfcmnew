@@ -34,10 +34,10 @@ while(1):
               "notification": {
                 "title": "Python",
                 "body": msg,
-                "image": "https://photos.app.goo.gl/6GqqGFMR3m8CfD9y8"
+                "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
               },
                 "data":{
-                    "image": "https://photos.app.goo.gl/6GqqGFMR3m8CfD9y8"
+                    "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
                 }
             })
             response = requests.request("POST", url, headers=headers, data=payload)
