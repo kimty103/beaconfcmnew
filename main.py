@@ -34,10 +34,10 @@ while(1):
               "notification": {
                 "title": "Python",
                 "body": msg,
-                "image": "https://photos.google.com/photo/AF1QipOuDFQt5tsWfzyS_q8kmV2nWaaFIvpN6hubCeG0"
+                "image": "https://photos.app.goo.gl/6GqqGFMR3m8CfD9y8"
               },
                 "data":{
-                    "image": "https://photos.google.com/photo/AF1QipOuDFQt5tsWfzyS_q8kmV2nWaaFIvpN6hubCeG0"
+                    "image": "https://photos.app.goo.gl/6GqqGFMR3m8CfD9y8"
                 }
             })
             response = requests.request("POST", url, headers=headers, data=payload)
