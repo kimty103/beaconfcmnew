@@ -37,7 +37,10 @@ while(1):
                 "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
               },
                 "data":{
-                    "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
+                    #"image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0",
+                    "image" : "https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_1.png?alt=media&token=2dafbbfd-96dd-4b8a-b620-3df0d875f696",
+                    "floor": (doc.to_dict())["floor"],
+                    "clickAction": "EmergencyActivity"
                 }
             })
             response = requests.request("POST", url, headers=headers, data=payload)
