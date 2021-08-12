@@ -26,23 +26,24 @@ while(1):
         users_ref = db.collection(u'workplace')
         docs = users_ref.stream()
         for doc in docs:
-            #print(f'{doc.id} => {(doc.to_dict())["token"]}')
-            #print((doc.to_dict()))
-            msg = "your floor is " + str((doc.to_dict())["floor"])
-            payload = json.dumps({
-              "to": (doc.to_dict())["token"],
-              "notification": {
-                "title": "Python",
-                "body": msg,
-                "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
-              },
-                "data":{
+            if((doc.to_dict())["enter"]):
+                print(f'{(doc.to_dict())["token"]} = {(doc.to_dict())["enter"]}')
+                #print((doc.to_dict()))
+                msg = "your floor is " + str((doc.to_dict())["floor"])
+                payload = json.dumps({
+                  "to": (doc.to_dict())["token"],
+                  "notification": {
+                    "title": "Python",
+                    "body": msg,
                     "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
-                }
-            })
-            response = requests.request("POST", url, headers=headers, data=payload)
-            print(response.text)
-        print(type(docs))
+                  },
+                    "data":{
+                        "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
+                    }
+                })
+                response = requests.request("POST", url, headers=headers, data=payload)
+                print(response.text)
+#        print(type(docs))
     elif(getValue == -1):
         break
 
