@@ -3,7 +3,7 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-import file
+import main
 
 # connect to firebase database
 cred = credentials.Certificate("beacon-client-app-firebase-adminsdk-52b5p-186f3fb413.json")  # key file name
@@ -20,16 +20,16 @@ headers = {
 
 
 def add_dict(to_add, floor):
-    for num, floors in file.floors_dict.items():
+    for num, floors in main.floors_dict.items():
         if (num != floor and to_add in floors):
             floors.remove(to_add)
-            file.floors_dict[num] = floors
+            main.floors_dict[num] = floors
         elif (num == floor and to_add in floors):
             return
         elif (num == floor and to_add not in floors):
-            file.floors_dict[floor].append(to_add)
+            main.floors_dict[floor].append(to_add)
         db.collection(u'floors').document(str(num)).set({
-            'tokens': file.floors_dict[num]
+            'tokens': main.floors_dict[num]
         })
 
 
