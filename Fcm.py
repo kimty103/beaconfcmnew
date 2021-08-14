@@ -1,8 +1,6 @@
 import requests
 import json
 import firebase_admin
-import threading
-import time
 from firebase_admin import credentials
 from firebase_admin import firestore
 import file

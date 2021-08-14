@@ -1,14 +1,11 @@
 import RPi.GPIO as gpio
-import time
 import datetime
 import firebase_admin
 import Fcm
-import requests
-import json
 import spidev as spi
 from firebase_admin import credentials
 from firebase_admin import firestore
-import threading
+
 
 cred = credentials.Certificate("beacon-client-app-firebase-adminsdk-52b5p-186f3fb413.json") #key file name
 firebase_admin.initialize_app(cred)
@@ -77,14 +74,5 @@ class Floor:
                               bouncetime=50)
 
 
-
-
-def process():
-    First_floor.fire_detect()
-    Second_floor.fire_detect()
-    #Third_floor.fire_detect()
-
-    while True:
-        time.sleep(3)
 
 
