@@ -18,12 +18,18 @@ headers = {
   'Content-Type': 'application/json'
 }
 
+image_evac = [
+'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_1.png?alt=media&token=2dafbbfd-96dd-4b8a-b620-3df0d875f696',
+    'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_2.png?alt=media&token=f8d942f7-d5d2-4e10-89f0-07d50bad7f12',
+    'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_3.png?alt=media&token=ed894e24-0939-43be-b8a0-d9c9c106ff83'
+]
+
 getValue = 0
 while(1):
     getValue = int(input())   #get input value(this maybe a sensor value)
  #   print(getValue)
     if(getValue == 1):
-        users_ref = db.collection(u'workplace')
+        users_ref = db.collection(u'workplace4')
         docs = users_ref.stream()
         for doc in docs:
             #print(f'{doc.id} => {(doc.to_dict())["token"]}')
@@ -31,16 +37,18 @@ while(1):
             msg = "your floor is " + str((doc.to_dict())["floor"])
             payload = json.dumps({
                 "to": (doc.to_dict())["token"],
-                "notification": {
-                    "title": "Python",
-                    "body": msg,
-                    "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
-              },
+              #   "notification": {
+              #       "title": "Python",
+              #       "body": msg,
+              #       "click_action": "EmergencyActivity",
+              #       # "icon" : "ic_flame",
+              #       "color" : "#FF0000",
+              #       "image": "https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/ic_flame.png?alt=media&token=dd90dfa2-303a-42c9-9e8c-3dfa071f2088"
+              #
+              # },
                 "data":{
-                    #"image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0",
-                    "image" : "https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_1.png?alt=media&token=2dafbbfd-96dd-4b8a-b620-3df0d875f696",
+                    "image": image_evac[(doc.to_dict())["floor"]],
                     "floor": (doc.to_dict())["floor"],
-                    "clickAction": "EmergencyActivity"
                 }
             })
             response = requests.request("POST", url, headers=headers, data=payload)
