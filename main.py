@@ -30,11 +30,11 @@ while(1):
             #print((doc.to_dict()))
             msg = "your floor is " + str((doc.to_dict())["floor"])
             payload = json.dumps({
-              "to": (doc.to_dict())["token"],
-              "notification": {
-                "title": "Python",
-                "body": msg,
-                "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
+                "to": (doc.to_dict())["token"],
+                "notification": {
+                    "title": "Python",
+                    "body": msg,
+                    "image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0"
               },
                 "data":{
                     #"image": "https://lh3.googleusercontent.com/pw/AM-JKLUHlrO-HT4yXM2ubElH3wfnwlTYtLIlhaeoGzFw3VIPmRK4p-LjEk0wvD4tM9RQE1t9nO8zyiQXqy55VRlxLqWeWRDIN5SXTH7W2ZAQuPF8H3TykISf_eOLnWN3oY1-EqOpWo_vvvwOj18zh7_QROCz=w653-h870-no?authuser=0",
