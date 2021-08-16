@@ -20,8 +20,7 @@ headers = {
 
 image_evac = [
 'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_1.png?alt=media&token=2dafbbfd-96dd-4b8a-b620-3df0d875f696',
-    'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_2.png?alt=media&token=f8d942f7-d5d2-4e10-89f0-07d50bad7f12',
-    'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_3.png?alt=media&token=ed894e24-0939-43be-b8a0-d9c9c106ff83'
+    'https://firebasestorage.googleapis.com/v0/b/beacon-client-app.appspot.com/o/evacuation_2.png?alt=media&token=f8d942f7-d5d2-4e10-89f0-07d50bad7f12'
 ]
 
 getValue = 0
@@ -47,8 +46,9 @@ while(1):
               #
               # },
                 "data":{
-                    "image": image_evac[(doc.to_dict())["floor"]],
-                    "floor": (doc.to_dict())["floor"],
+                    "image": image_evac[(doc.to_dict())["floor"] -1],
+                    # "floor": (doc.to_dict())["floor"],
+                    "floor": 15,
                 }
             })
             response = requests.request("POST", url, headers=headers, data=payload)
